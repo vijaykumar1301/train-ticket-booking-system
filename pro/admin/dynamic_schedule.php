@@ -54,8 +54,8 @@ $me = "?page=$source";
                                         <td><?php echo getTrainName($fetch['train_id']); ?></td>
                                         <td><?php echo getRoutePath($fetch['route_id']);
                                                 $fullname = " Schedule" ?></td>
-                                        <td>₹ <?php echo ($fetch['first_fee']); ?></td>
-                                        <td>₹ <?php echo ($fetch['second_fee']); ?></td>
+                                        <td>₹<?php echo ($fetch['first_fee']); ?></td>
+                                        <td>₹<?php echo ($fetch['second_fee']); ?></td>
                                         <td><?php $array = getTotalBookByType($id);
                                                 echo (($array['first'] - $array['first_booked'])), " Seat(s) Available for First Class" . "<hr/>" . ($array['second'] - $array['second_booked']) . " Seat(s) Available for Second Class";
                                                 ?></td>

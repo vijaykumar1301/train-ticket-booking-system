@@ -1,13 +1,17 @@
 <?php
 // Include the config file
-require_once 'config.php';
+require_once '../rpconfig.php';
 
 // Include the Razorpay SDK
 require 'vendor/autoload.php';
 use Razorpay\Api\Api;
 
 // Initialize Razorpay API
+$amount = $_POST['amount'];
+
 $api = new Api(RAZORPAY_API_KEY, RAZORPAY_API_SECRET);
+
+
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -15,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Create a Razorpay order
     $order = $api->order->create([
-        'amount' => 1000, // Amount in paise (100 paise = 1 INR)
+        'amount' => $amount, // Amount in paise (100 paise = 1 INR)
         'currency' => 'INR',
         'receipt' => 'order_receipt_' . time(),
     ]);

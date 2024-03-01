@@ -97,9 +97,9 @@ $me = $_SESSION['user_id'];
                                                 <p>
                                                     Class : <select name="class" required class="form-control" id="">
                                                         <option value="">-- Select Class --</option>
-                                                        <option value="first">First Class ($
+                                                        <option value="first">First Class (₹
                                                             <?php echo ($fetch['first_fee']); ?>)</option>
-                                                        <option value="second">Second Class ($
+                                                        <option value="second">Second Class (₹
                                                             <?php echo ($fetch['second_fee']); ?>)</option>
                                                     </select>
                                                 </p>

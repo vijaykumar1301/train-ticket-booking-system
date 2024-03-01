@@ -44,16 +44,24 @@ if (!isset($file_access)) die("Direct File Access Denied");
                                 You are about to book
                                 <?php echo $number, " Ticket", $number > 1 ? 's' : '', ' for ', getRouteFromSchedule($schedule_id); ?>
                                 <br />
+                                <form action="checkout.php" method="post">
+                                    <div>
+                                        <input type="text" name="" />
+                                    <div>
+                                    <div>
+                                        <input type="submit" value="Pay" />
+                                    </div>
+                                </form>
 
                                 <?php
 
                                     $fee = ($_SESSION['amount'] = getFee($schedule_id, $class));
-                                    echo $number, " x $", $fee, " = $", ($fee * $number), "<hr/>";
+                                    echo $number, " x ₹", $fee, " = ₹", ($fee * $number), "<hr/>";
                                     $fee = $fee * $number;
                                     $amount = intval($fee);
                                     $vat = ceil($fee * 0.01);
-                                    echo "V.A.T Charges = $$vat<br/><br/><hr/>";
-                                    echo "Total = $", $total = $amount + $vat;
+                                    echo "V.A.T Charges = ₹$vat<br/><br/><hr/>";
+                                    echo "Total = ₹", $total = $amount + $vat;
                                     $fee =  intval($total) . "00";
                                     $_SESSION['amount'] =  $total;
                                     $_SESSION['original'] =  $fee;
